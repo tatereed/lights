@@ -10,18 +10,15 @@ def daily():
     while True:
         now = datetime.now()
         if 7 <= int(now.strftime("%H")) <= 21:
-            if lights_on == True:
-                return
-            else:
+            if lights_on == False:
                 subprocess.run(["uhubctl", "-l", "1-1", "-a", "on"])
                 lights_on = True
-                return
         else:
-            if lights_on == False:
-                return
-            else:
+            if lights_on == True:
                 subprocess.run(["uhubctl", "-l", "1-1", "-a", "off"])
                 lights_on = False
+            
+                
 
 def test():
     lights_on = True
