@@ -13,10 +13,12 @@ def daily():
             if lights_on == False:
                 subprocess.run(["uhubctl", "-l", "1-1", "-a", "on"])
                 lights_on = True
+                print(now.strftime("%H:%M:%S"))
         else:
             if lights_on == True:
                 subprocess.run(["uhubctl", "-l", "1-1", "-a", "off"])
                 lights_on = False
+                print(now.strftime("%H:%M:%S"))
             
                 
 
